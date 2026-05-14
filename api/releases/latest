@@ -2,7 +2,7 @@
   "version": "1.0.131.4990",
   "baseVersion": "1.0.0",
   "displayVersion": "1.0.0+20260511.053243Z",
-  "publishedAtUtc": "2026-05-11T05:32:43.0609278Z",
+  "publishedAtUtc": "2026-05-14T12:50:00Z",
   "publicBaseUrl": "https://signal.horse",
   "downloadBaseUrl": "https://signal.horse/releases/latest",
   "versionApiUrl": "https://signal.horse/api/releases/latest",
@@ -39,8 +39,8 @@
     "linux": {
       "amd64": {
         "binaryFilename": "signal_executor_linux_amd64",
-        "binarySize": 17746984,
-        "binarySha256": "d5637aa2b4d31cc0433d11227a1ad164e5d2b69c7a860c28ddfccf846b113b47",
+        "binarySize": 17804328,
+        "binarySha256": "335028927019e2e6adb9e6fd8aecf5a67984931900f3b6c61883eba1d9ba37ea",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
         "releaseNotes": "Linux local executor binary with embedded trading UI."
       }
@@ -48,31 +48,31 @@
     "macos": {
       "arm64": {
         "binaryFilename": "signal_executor_darwin_arm64",
-        "binarySize": 9645344,
-        "binarySha256": "296c89f5c2ab29a84ce5350488c179dab5a26c5a9ba3993eb2e99a6eba10f779",
+        "binarySize": 9694976,
+        "binarySha256": "ffe7cedcc9c22dfae5dbb25371f81c1444a1dcc4c0ac3b4aeb1422924205054a",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64",
         "dmgFilename": "signal_executor_darwin_arm64.dmg",
-        "dmgSize": 5762624,
-        "dmgSha256": "cd19e9ee6e115698678b26344a7d8241ea60da3bcc29adaedacfc4cc6a2f2983",
+        "dmgSize": 5781745,
+        "dmgSha256": "782a364eb765a980dc1dcb5c1b6c6660c0b4f2eec5f5623ee76fb7843189a130",
         "dmgUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg",
         "appZipFilename": "signal_executor_darwin_arm64_app.zip",
-        "appZipSize": 5246867,
-        "appZipSha256": "0c2064a7bce69c66227f53944bdc16a1bc07718ff3a3f38e5e11b4460ba505c9",
+        "appZipSize": 5265184,
+        "appZipSha256": "a4a54417d08b339df78ffd24d66e2141b3836f1c9aaeda7444e327e01bb3d5e2",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64_app.zip",
         "releaseNotes": "macOS menu-bar launcher bundle with embedded local executor backend."
       },
       "amd64": {
         "binaryFilename": "signal_executor_darwin_amd64",
-        "binarySize": 10517044,
-        "binarySha256": "62f267e193cd5753fb359c32e7a249c11f550c3ac387880aabf990be5c8ea1d8",
+        "binarySize": 10574484,
+        "binarySha256": "ca11a1a51861eb5f4226a4a7b1a4123f19c1148ab643b564bb977e5fe3bdcfad",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_darwin_amd64",
         "dmgFilename": "signal_executor_darwin_amd64.dmg",
-        "dmgSize": 6269023,
-        "dmgSha256": "6330311f03f0f415dcf2c8d50645eb7c6f22da17b241d72d78919172e666a9d1",
+        "dmgSize": 6293508,
+        "dmgSha256": "1bbc0a728f7cdafaaeee156c834c0d2854e8e8705b6985b29506f31beed95684",
         "dmgUrl": "https://signal.horse/releases/latest/signal_executor_darwin_amd64.dmg",
         "appZipFilename": "signal_executor_darwin_amd64_app.zip",
-        "appZipSize": 5628662,
-        "appZipSha256": "fab173d8a96ccf5f31af0190e8814eeaeb82c71286bdaeba038453be0d0b7fa6",
+        "appZipSize": 5645202,
+        "appZipSha256": "8a288d23d6fd43fd3bcd679af28422742d21ec3040c70f9583c2d1e121cd3926",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_amd64_app.zip",
         "releaseNotes": "macOS menu-bar launcher bundle with embedded local executor backend."
       }
