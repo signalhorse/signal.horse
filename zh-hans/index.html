@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signal Horse - 本地代理交易配置</title>
+    <title>Signal Horse - 本地智能体交易设置</title>
     <meta name="description" content="Signal Horse is a high-performance platform for automated crypto trading signal execution and order routing.">
     <meta property="og:title" content="Signal Horse">
     <meta property="og:description" content="Automate trading signal execution across exchanges with speed, security, and control.">
@@ -103,15 +103,15 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <span class="badge bg-warning text-dark mb-3 px-3 py-2">代理集成 · 本地执行器</span>
-                <h1 class="display-4 fw-bold mb-4">Use Signal Horse as your local trading workspace for AI agents</h1>
-                <p class="lead text-muted mb-4">Signal Horse is a local trading workspace and HTTP API for AI agents and operators. It lets you connect Binance, OKX, Bybit, Bitget, Gate, and other supported exchanges in one click for AI automated trading, while also supporting manual trading and batch trading across multiple accounts. Charts, balances, positions, and spot or swap order execution stay on one machine, and exchange credentials remain on the local host. OpenClaw is one supported client, but the flow is not limited to OpenClaw.</p>
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">浠ｇ悊闆嗘垚 · 本地执行器</span>
+                <h1 class="display-4 fw-bold mb-4">将 Signal Horse 用作 AI 智能体的本地交易工作台</h1>
+                <p class="lead text-muted mb-4">Signal Horse 是面向 AI 智能体和操作员的本地交易工作台与 HTTP API。它支持一键连接 Binance、OKX、Bybit、Bitget、Gate 等受支持交易所，用于 AI 自动化交易，也支持手动交易以及跨多个账户的批量交易。图表、余额、持仓，以及现货或合约下单都在同一台机器上完成，交易所凭证也保留在本地主机。OpenClaw 是其中一个受支持的客户端，但整体流程并不局限于 OpenClaw。</p>
                 <div class="d-flex gap-3 flex-wrap mb-4">
                     <a href="#install" class="btn btn-warning btn-lg px-4">
                         <i class="bi bi-download me-2"></i>安装详情
                     </a>
                     <a href="#api-reference" class="btn btn-outline-warning btn-lg px-4">
-                        <i class="bi bi-journal-code me-2"></i>API 参考
+                        <i class="bi bi-journal-code me-2"></i>API 鍙傝€
                     </a>
                 </div>
             </div>
@@ -123,13 +123,13 @@
                         <span class="dot green"></span>
                         <span class="ms-2 text-muted">agent-bootstrap.sh</span>
                     </div>
-                                        <pre class="code-content mb-0"><code><span class="terminal-comment"># First-time setup on the machine that will trade</span>
+                                        <pre class="code-content mb-0"><code><span class="terminal-comment"># 在将要执行交易的机器上完成首次设置</span>
 <span class="terminal-prompt">$</span> curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service
 
-<span class="terminal-comment"># Check that Signal Horse is running normally</span>
+<span class="terminal-comment"># 检查 Signal Horse 是否正常运行</span>
 <span class="terminal-prompt">$</span> curl -fsS http://127.0.0.1:38182/health
 
-<span class="terminal-comment"># Open the firewall and visit it from another device</span>
+<span class="terminal-comment"># 放行防火墙后从另一台设备访问</span>
 <span class="terminal-prompt">$</span> 在浏览器中访问： http://&lt;server-ip&gt;:38182/</code></pre>
                 </div>
             </div>
@@ -141,8 +141,8 @@
                         <i class="bi bi-key-fill"></i>
                     </div>
                     <div class="hero-highlight-body">
-                        <h5>Quick AI trading access</h5>
-                        <p class="text-muted">Quickly connect OpenClaw, Claude Code, Codex, and similar tools for crypto AI quantitative trading.</p>
+                        <h5>快速接入 AI 交易</h5>
+                        <p class="text-muted">快速连接 OpenClaw、Claude Code、Codex 等工具，用于加密货币 AI 量化交易。</p>
                     </div>
                 </div>
             </div>
@@ -152,8 +152,8 @@
                         <i class="bi bi-arrow-down-circle-fill"></i>
                     </div>
                     <div class="hero-highlight-body">
-                        <h5>快速本地部署</h5>
-                        <p class="text-muted">下载本地安装包，将其解压到你自己的目录中，然后在这台机器的浏览器里打开 Signal Horse。</p>
+                        <h5>快速本地安装</h5>
+                        <p class="text-muted">下载本地安装包，解压到你自己的目录中，然后在这台机器的浏览器中打开 Signal Horse。</p>
                     </div>
                 </div>
             </div>
@@ -163,8 +163,8 @@
                         <i class="bi bi-diagram-3-fill"></i>
                     </div>
                     <div class="hero-highlight-body">
-                        <h5>AI automation + batch trading</h5>
-                        <p class="text-muted">One-click exchange access supports AI automated trading, manual trading, and batch trading across multiple accounts from one workspace.</p>
+                        <h5>AI 自动化 + 批量交易</h5>
+                        <p class="text-muted">一键接入交易所后，你可以在同一个工作台中完成 AI 自动化交易、手动交易，以及跨多个账户的批量交易。</p>
                     </div>
                 </div>
             </div>
@@ -177,9 +177,9 @@
         <div class="skill-spotlight ui-showcase">
             <div class="row align-items-center g-4 g-lg-5">
                 <div class="col-lg-5">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">实际产品界面</span>
-                    <h2 class="display-6 fw-bold mb-3">See what Signal Horse looks like before you install</h2>
-                    <p class="lead text-muted mb-4">Signal Horse serves a local web interface at /. Traders and AI agents can watch charts, switch Binance, OKX, Bybit, Bitget, Gate, and other supported exchanges, inspect positions and balances, run AI automation, place manual orders, and manage batch trading from one unified screen.</p>
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">产品界面预览</span>
+                    <h2 class="display-6 fw-bold mb-3">安装前先看看 Signal Horse 的界面</h2>
+                    <p class="lead text-muted mb-4">Signal Horse 在 / 提供本地 Web 界面。交易员和 AI 智能体可以在同一个界面中查看图表、切换 Binance、OKX、Bybit、Bitget、Gate 等受支持交易所、检查持仓和余额、运行 AI 自动化、手动下单，并管理批量交易。</p>
                     <div class="ui-showcase-metrics">
                         <div class="ui-showcase-chip">
                             <i class="bi bi-graph-up-arrow"></i>
@@ -191,11 +191,11 @@
                         </div>
                         <div class="ui-showcase-chip">
                             <i class="bi bi-lightning-charge-fill"></i>
-                            <span>下单、止盈止损和批量操作集中在一个界面</span>
+                            <span>下单、止盈止损和批量操作集中在同一个界面中</span>
                         </div>
                         <div class="ui-showcase-chip">
                             <i class="bi bi-diagram-3-fill"></i>
-                            <span>One-click exchange access for AI automation and multi-account batch trading</span>
+                            <span>一键接入交易所，支持 AI 自动化和多账户批量交易</span>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                     <div class="ui-showcase-frame">
                         <img
                             src="/static/img/signal-executor-ui-demo.png"
-                            alt="Signal Horse trading UI screenshot"
+                            alt="Signal Horse 交易界面截图"
                             class="img-fluid ui-showcase-image"
                             loading="lazy"
                         >
@@ -217,8 +217,8 @@
 <section id="overview" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">What gets installed on your machine</h2>
-            <p class="lead text-muted section-lead">Signal Horse is installed on the same machine where you trade. Setup downloads the program, creates local data files, and can enable automatic startup so your AI tool always connects to the same local service.</p>
+            <h2 class="display-6 fw-bold">你的机器上会安装哪些内容</h2>
+            <p class="lead text-muted section-lead">Signal Horse 会安装在你实际交易的那台机器上。安装流程会下载程序、创建本地数据文件，并可启用自动启动，让你的 AI 工具始终连接到同一个本地服务。</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-xl-3">
@@ -226,8 +226,8 @@
                     <div class="feature-icon bg-gradient-warning">
                         <i class="bi bi-box-seam-fill"></i>
                     </div>
-                    <h4>Signal Horse core program</h4>
-                    <p class="text-muted">This is the local program installed on your computer. It provides the trading page, local connection, and trading actions.</p>
+                    <h4>Signal Horse 核心程序</h4>
+                    <p class="text-muted">这是安装在你电脑上的本地程序，提供交易页面、本地连接以及交易操作。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -235,8 +235,8 @@
                     <div class="feature-icon bg-gradient-info">
                         <i class="bi bi-hdd-stack-fill"></i>
                     </div>
-                    <h4>Local settings and records</h4>
-                    <p class="text-muted">Your settings and other local data stay on this machine instead of in a remote web account.</p>
+                    <h4>本地设置与记录</h4>
+                    <p class="text-muted">你的设置和其他本地数据都会保留在这台机器上，而不是存到远程网页账户里。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -244,8 +244,8 @@
                     <div class="feature-icon bg-gradient-success">
                         <i class="bi bi-gear-fill"></i>
                     </div>
-                    <h4>Automatic background startup</h4>
-                    <p class="text-muted">After installation, Signal Horse can start automatically in the background, so you do not need to reopen it manually every time.</p>
+                    <h4>后台自动启动</h4>
+                    <p class="text-muted">安装完成后，Signal Horse 可以在后台自动启动，你不必每次都手动重新打开。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -253,8 +253,8 @@
                     <div class="feature-icon bg-gradient-danger">
                         <i class="bi bi-key-fill"></i>
                     </div>
-                    <h4>Exchange key entry</h4>
-                    <p class="text-muted">To connect an exchange, fill in API Key and Secret. OKX and Bitget also require a passphrase.</p>
+                    <h4>交易所密钥填写</h4>
+                    <p class="text-muted">连接交易所时，填写 API Key 和 Secret 即可。OKX 和 Bitget 还需要 passphrase。</p>
                 </div>
             </div>
         </div>
@@ -264,16 +264,16 @@
 <section id="install" class="py-5 bg-dark-gradient">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">安装详情</h2>
-            <p class="lead text-muted section-lead">If you are installing it yourself, use the normal installer. If you are preparing a server or AI workflow, use the one-line install command.</p>
+            <h2 class="display-6 fw-bold">安装说明</h2>
+            <p class="lead text-muted section-lead">如果你是自己安装，请使用常规安装方式；如果你在准备服务器或 AI 工作流，请使用一行安装命令。</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-windows text-warning me-2"></i>Windows</h4>
-                    <p class="text-muted">面向本地浏览器交易界面的便携 ZIP。不需要管理员权限、不写注册表，也不会自动启动。</p>
+                    <p class="text-muted">面向本地浏览器交易界面的便携 ZIP 包。不需要管理员权限，不写注册表，也不会自动启动。</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
-                        <a href="https://signal.horse/releases/latest/signal_horse_windows_portable.zip" class="btn btn-warning"><i class="bi bi-download me-2"></i>下载 Windows 便携 ZIP</a>
+                        <a href="https://signal.horse/releases/latest/signal_horse_windows_portable.zip" class="btn btn-warning"><i class="bi bi-download me-2"></i>下载 Windows 便携 ZIP 包</a>
                         <span class="badge bg-secondary align-self-center">Windows x64 · 1.0.0+20260511.053243Z</span>
                     </div>
                     <p class="text-muted mb-2">将 ZIP 解压到任意用户可写目录，然后运行本地启动器：</p>
@@ -281,65 +281,65 @@
                         <pre class="mb-0 guide-code">1. 下载并解压 signal_horse_windows_portable.zip
 2. 打开解压后的文件夹
 3. 运行 Start Signal Executor.cmd
-4. 浏览器会打开本地 UI</pre>
+4. 浏览器会自动打开本地界面</pre>
                     </div>
-                    <p class="text-muted mb-2">如果你更偏好把程序脚本化安装到 LocalAppData，可以使用下面的 PowerShell 辅助脚本：</p>
+                    <p class="text-muted mb-2">如果你更喜欢用脚本安装到 LocalAppData，请使用这个 PowerShell 辅助脚本：</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">Invoke-WebRequest -Uri https://signal.horse/install.ps1 -OutFile install.ps1
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
                     </div>
-                    <p class="text-muted mb-2">本地 UI 打开地址：</p>
+                    <p class="text-muted mb-2">本地界面地址：</p>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">http://127.0.0.1:38182/</pre>
                     </div>
-                    <p class="text-muted mb-0">这个 Windows 包始终运行在用户空间中：不需要管理员权限、不写开机启动注册表项，并且只提示新版本而不会自动下载更新。</p>
+                    <p class="text-muted mb-0">这个 Windows 包始终只在用户目录内运行。不需要管理员权限，不写开机启动注册表项，只会提示你有新版本可用。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-apple text-warning me-2"></i>macOS</h4>
-                    <p class="text-muted">Menu bar app that installs Signal Horse locally and lets you open the trading page or restart the local service with one click.</p>
+                    <p class="text-muted">会在本地安装 Signal Horse 的菜单栏应用，并让你一键打开交易页面或重启本地服务。</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
-                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg" class="btn btn-warning"><i class="bi bi-download me-2"></i>Download Signal Horse for macOS (.dmg)</a>
+                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg" class="btn btn-warning"><i class="bi bi-download me-2"></i>下载 Signal Horse for macOS (.dmg)</a>
                         <a href="https://signal.horse/releases/latest/signal_executor_darwin_amd64.dmg" class="btn btn-outline-light"><i class="bi bi-download me-2"></i>下载 Intel DMG</a>
                         <span class="badge bg-secondary align-self-center">macOS 13+ · Apple Silicon / Intel</span>
                     </div>
-                    <p class="text-muted mb-2">For most macOS desktop users, use the packaged app:</p>
+                    <p class="text-muted mb-2">对大多数 macOS 桌面用户来说，直接使用打包好的应用即可：</p>
                     <div class="code-block mb-3">
-                        <pre class="mb-0 guide-code">1. Download and open the Signal Horse macOS package (.dmg)
-2. Drag the downloaded app into /Applications
-3. 打开应用，并通过菜单栏图标在浏览器中打开本地 UI
-4. Use the menu to restart the local service or turn on background startup</pre>
+                        <pre class="mb-0 guide-code">1. 下载并打开 Signal Horse macOS 安装包 (.dmg)
+2. 将下载的应用拖入 /Applications
+3. 打开应用，然后使用菜单栏图标在浏览器中打开本地界面
+4. 通过菜单重启本地服务，或打开后台自动启动</pre>
                     </div>
-                    <p class="text-muted mb-2">This DMG can be opened normally in Finder, but it is not yet Apple notarized. The first time, macOS may still ask you to right click the app and choose Open once.</p>
-                    <p class="text-muted mb-2">If you need command-line deployment or unattended setup, you can still use the one-line install command:</p>
+                    <p class="text-muted mb-2">这个 DMG 可以在 Finder 中正常打开，但还没有完成 Apple notarization。第一次打开时，macOS 仍可能要求你右键应用并选择一次“打开”。</p>
+                    <p class="text-muted mb-2">如果你需要命令行部署或无人值守安装，也可以继续使用一行安装命令：</p>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
-                    <p class="text-muted mb-0">The command-line install sets up the same local Signal Horse service. The app is simply a more convenient desktop way to manage it.</p>
+                    <p class="text-muted mb-0">命令行安装配置的是同一套本地 Signal Horse 服务；图形应用只是更方便的桌面管理方式。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
-                    <h4><i class="bi bi-ubuntu text-warning me-2"></i>Linux（Ubuntu / Debian）</h4>
-                    <p class="text-muted">Run one command and Linux will download Signal Horse, install it, set it to start automatically, and open the local service on port 38182:</p>
+                    <h4><i class="bi bi-ubuntu text-warning me-2"></i>Linux (Ubuntu / Debian)</h4>
+                    <p class="text-muted">运行一条命令后，Linux 会自动下载并安装 Signal Horse、设置自动启动，并在 38182 端口启动本地服务：</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
-                    <p class="text-muted mb-2">After it finishes, confirm that Signal Horse is running:</p>
+                    <p class="text-muted mb-2">完成后，请确认 Signal Horse 正在运行：</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl http://127.0.0.1:38182/health</pre>
                     </div>
-                    <p class="text-muted mb-2">If you want to open the Signal Horse page from another device, allow TCP port 38182 on the Linux firewall or security group, then visit:</p>
+                    <p class="text-muted mb-2">如果你想从另一台设备打开 Signal Horse 页面，请先在 Linux 防火墙或安全组中放行 TCP 38182 端口，然后访问：</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">http://&lt;server-ip&gt;:38182/</pre>
                     </div>
-                    <p class="text-muted mb-0">By default, Signal Horse uses port 38182 on Linux. The installer tries to set it to start automatically for the current user, and if you do not use root it installs under your user directory.</p>
+                    <p class="text-muted mb-0">默认情况下，Signal Horse 在 Linux 上使用 38182 端口。安装器会尝试为当前用户启用自动启动；如果你不是用 root 安装，它会安装到你的用户目录下。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
-                    <h4><i class="bi bi-router-fill text-warning me-2"></i>Local addresses available after install</h4>
+                    <h4><i class="bi bi-router-fill text-warning me-2"></i>安装后可用的本地地址</h4>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">GET  http://127.0.0.1:38182/health
 GET  http://127.0.0.1:38182/positions
@@ -350,7 +350,7 @@ POST http://127.0.0.1:38182/set-tpsl
 POST http://127.0.0.1:38182/cancel-tpsl
 POST http://127.0.0.1:38182/close-all</pre>
                     </div>
-                    <p class="text-muted mb-0">On the same machine, your AI tool can keep using the local address above. On Linux, after opening the firewall, you can also access the web page from another device.</p>
+                    <p class="text-muted mb-0">在同一台机器上，你的 AI 工具可以继续使用上面的本地地址。在 Linux 上放行防火墙后，你也可以从另一台设备访问网页界面。</p>
                 </div>
             </div>
         </div>
@@ -361,35 +361,35 @@ POST http://127.0.0.1:38182/close-all</pre>
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-6 fw-bold">推荐的首次使用流程</h2>
-            <p class="lead text-muted section-lead">The easiest first run is: install Signal Horse, add your exchange API keys, check balances and positions, then decide whether to use demo or live trading.</p>
+            <p class="lead text-muted section-lead">最简单的首次使用流程是：先安装 Signal Horse，添加交易所 API 密钥，检查余额和持仓，再决定使用 demo 还是真实交易。</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">1</div>
-                    <h5>Install Signal Horse locally</h5>
-                    <p class="text-muted">Install it on the same machine where your AI tool or trading workflow runs.</p>
+                    <h5>在本地安装 Signal Horse</h5>
+                    <p class="text-muted">请安装在运行 AI 工具或交易工作流的同一台机器上。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">2</div>
-                    <h5>Add exchange API keys</h5>
-                    <p class="text-muted">Fill in API Key and Secret. OKX and Bitget also require a passphrase.</p>
+                    <h5>添加交易所 API 密钥</h5>
+                    <p class="text-muted">填写 API Key 和 Secret 即可。OKX 和 Bitget 还需要 passphrase。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">3</div>
-                    <h5>Check data before trading</h5>
-                    <p class="text-muted">Before placing any live orders, confirm that balances, positions, and order history can be read correctly.</p>
+                    <h5>交易前先检查数据</h5>
+                    <p class="text-muted">在下真实订单前，先确认余额、持仓和订单历史都能正确读取。</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">4</div>
                     <h5>选择执行模式</h5>
-                    <p class="text-muted">Use demo or testnet first. Switch to live trading only after you confirm the account and permissions are correct.</p>
+                    <p class="text-muted">先使用 demo 或 testnet。只有在确认账户和权限都正确之后，再切换到真实交易。</p>
                 </div>
             </div>
         </div>
@@ -399,8 +399,8 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="api-reference" class="py-5 bg-dark-gradient">
     <div class="container">
         <div class="text-center">
-            <h2 class="display-6 fw-bold">Signal Horse API Reference</h2>
-            <p class="lead text-muted section-lead mt-3">完整 HTTP 参考（29 个接口）—— 包含请求/响应结构、参数和各交易所说明 —— 已放在单独的文档页中。</p>
+            <h2 class="display-6 fw-bold">Signal Horse API 参考</h2>
+            <p class="lead text-muted section-lead mt-3">完整 HTTP 参考（29 个端点）—— 包含请求/响应结构、参数和各交易所说明 —— 已放在单独的文档页面中。</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
                 <a href="https://docs.signal.horse/" class="btn btn-warning btn-lg"><i class="bi bi-book me-2"></i>打开 API 文档</a>
                 <a href="https://docs.signal.horse/#api-reference" class="btn btn-outline-light btn-lg"><i class="bi bi-list-ul me-2"></i>接口总览</a>
@@ -433,31 +433,31 @@ POST http://127.0.0.1:38182/close-all</pre>
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-6 fw-bold">常见问题</h2>
-            <p class="lead text-muted section-lead">Quick answers to the questions most users ask before they start.</p>
+            <p class="lead text-muted section-lead">这里汇总了大多数用户开始前最常问的问题。</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>Will this install Signal Horse on my computer?</h5>
-                    <p class="text-muted">Yes. The installer downloads Signal Horse to your computer and can keep it running locally in the background for your AI tool or trading page.</p>
+                    <h5>这会把 Signal Horse 安装到我的电脑上吗？</h5>
+                    <p class="text-muted">会。安装程序会把 Signal Horse 下载到你的电脑上，并可让它在后台本地运行，供你的 AI 工具或交易页面使用。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
                     <h5>我的交易所 API 密钥会经过你们的服务器吗？</h5>
-                    <p class="text-muted">No. Your API keys stay on your own machine. Signal Horse reads them locally and sends requests from your machine directly to the exchange.</p>
+                    <p class="text-muted">不会。你的 API 密钥只保留在你自己的机器上。Signal Horse 会在本地读取它们，并由你的机器直接向交易所发出请求。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>Which port does Signal Horse use?</h5>
-                    <p class="text-muted">By default, Signal Horse uses port 38182. On the same machine, open http://127.0.0.1:38182/ . If you want to access it from another Linux device, open that port in the firewall first.</p>
+                    <h5>Signal Horse 使用哪个端口？</h5>
+                    <p class="text-muted">默认使用 38182 端口。在同一台机器上打开 http://127.0.0.1:38182/ 。如果要从另一台 Linux 设备访问，请先在防火墙中放行该端口。</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>How should I stay safe when enabling AI trading?</h5>
-                    <p class="text-muted">Start with demo mode, keep manual confirmation for real orders, and set leverage and risk limits before letting AI place live trades.</p>
+                    <h5>启用 AI 交易时，怎样做更安全？</h5>
+                    <p class="text-muted">先从 demo 模式开始，真实下单保留人工确认，并在让 AI 发起真实交易前设置好杠杆和风险限制。</p>
                 </div>
             </div>
         </div>
@@ -467,8 +467,8 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="software-platforms" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">Supported software platforms</h2>
-            <p class="lead text-muted section-lead">Signal Horse can be connected from OpenClaw, Claude Code, Codex, Hermes Agents, and other agent platforms for one-stop access to multiple cryptocurrency exchanges and unified management.</p>
+            <h2 class="display-6 fw-bold">支持的软件平台</h2>
+            <p class="lead text-muted section-lead">Signal Horse 可以从 OpenClaw、Claude Code、Codex、Hermes Agents 等智能体平台接入，一站式连接多个加密货币交易所并统一管理。</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
@@ -477,7 +477,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/openclaw.png" alt="OpenClaw" class="platform-logo-image platform-logo-image--openclaw">
                     </div>
                     <h5 class="mb-2">OpenClaw</h5>
-                    <p class="text-muted mb-0">Local agent workflows can call Signal Horse for exchange access, order execution, and trading automation.</p>
+                    <p class="text-muted mb-0">本地智能体工作流可以调用 Signal Horse 完成交易所接入、订单执行和交易自动化。</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -486,7 +486,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/claude-code.svg" alt="Claude Code" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Claude Code</h5>
-                    <p class="text-muted mb-0">Use Claude Code as a local trading copilot for research, manual execution, and automated workflows.</p>
+                    <p class="text-muted mb-0">可将 Claude Code 用作本地交易副驾驶，用于研究、手动执行和自动化工作流。</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -495,7 +495,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/codex.svg" alt="Codex" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Codex</h5>
-                    <p class="text-muted mb-0">Codex can use Signal Horse as a local trading gateway for crypto research, order execution, and AI trading automation.</p>
+                    <p class="text-muted mb-0">Codex 可以把 Signal Horse 用作本地交易网关，用于加密货币研究、订单执行和 AI 交易自动化。</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -504,7 +504,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/hermes-agents.svg" alt="Hermes Agents" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Hermes Agents</h5>
-                    <p class="text-muted mb-0">Hermes Agents and other multi-agent runtimes can unify cryptocurrency exchange operations through Signal Horse.</p>
+                    <p class="text-muted mb-0">Hermes Agents 和其他多智能体运行时也可以通过 Signal Horse 统一处理加密货币交易所操作。</p>
                 </div>
             </div>
         </div>
