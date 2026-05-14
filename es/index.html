@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signal Horse - Local Agent Trading Setup</title>
+    <title>Signal Horse - Configuración de trading con agente local</title>
     <meta name="description" content="Signal Horse is a high-performance platform for automated crypto trading signal execution and order routing.">
     <meta property="og:title" content="Signal Horse">
     <meta property="og:description" content="Automate trading signal execution across exchanges with speed, security, and control.">
@@ -29,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
+            <a class="navbar-brand d-flex align-items-center" href="/es/">
                 <img src="/static/img/logo_tr.png" alt="Signal Horse" height="36" class="me-2">
                 <span class="fw-bold">Signal Horse</span>
             </a>
@@ -41,19 +41,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="/#overview">Overview</a>
+                        <a class="nav-link" href="/es/#overview">Descripción general</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#install">Installation</a>
+                        <a class="nav-link" href="/es/#install">Instalación</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#flow">First Run</a>
+                        <a class="nav-link" href="/es/#flow">Primer inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#faq">FAQ</a>
+                        <a class="nav-link" href="/es/#faq">Preguntas frecuentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://docs.signal.horse/">API Docs</a>
+                        <a class="nav-link" href="https://docs.signal.horse/">Documentación API</a>
                     </li>
                     
                     <!-- Language Dropdown -->
@@ -63,7 +63,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item active" href="/">English</a>
+                                <a class="dropdown-item" href="/">English</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="/zh-hans/">简体中文</a>
@@ -84,7 +84,7 @@
                                 <a class="dropdown-item" href="/ja/">日本語</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/es/">Español</a>
+                                <a class="dropdown-item active" href="/es/">Español</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="/pt/">Português</a>
@@ -103,15 +103,15 @@
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <span class="badge bg-warning text-dark mb-3 px-3 py-2">Agent Integration · Local Executor</span>
-                <h1 class="display-4 fw-bold mb-4">Use Signal Horse as your local trading workspace for AI agents</h1>
-                <p class="lead text-muted mb-4">Signal Horse is a local trading workspace and HTTP API for AI agents and operators. It lets you connect Binance, OKX, Bybit, Bitget, Gate, and other supported exchanges in one click for AI automated trading, while also supporting manual trading and batch trading across multiple accounts. Charts, balances, positions, and spot or swap order execution stay on one machine, and exchange credentials remain on the local host. OpenClaw is one supported client, but the flow is not limited to OpenClaw.</p>
+                <span class="badge bg-warning text-dark mb-3 px-3 py-2">Integración de agente · Ejecutor local</span>
+                <h1 class="display-4 fw-bold mb-4">Usa Signal Horse como espacio de trabajo de trading local para agentes de IA</h1>
+                <p class="lead text-muted mb-4">Signal Horse es un espacio de trabajo de trading local y una API HTTP para agentes de IA y operadores. Permite conectar Binance, OKX, Bybit, Bitget, Gate y otros exchanges compatibles con un clic para trading automatizado por IA, trading manual y trading por lotes en múltiples cuentas. Los charts, saldos, posiciones y ejecución de órdenes permanecen en una máquina local; las credenciales del exchange quedan en el host local. OpenClaw es un cliente compatible, pero el flujo no se limita a OpenClaw.</p>
                 <div class="d-flex gap-3 flex-wrap mb-4">
                     <a href="#install" class="btn btn-warning btn-lg px-4">
-                        <i class="bi bi-download me-2"></i>Install Details
+                        <i class="bi bi-download me-2"></i>Detalles de instalación
                     </a>
                     <a href="#api-reference" class="btn btn-outline-warning btn-lg px-4">
-                        <i class="bi bi-journal-code me-2"></i>API Reference
+                        <i class="bi bi-journal-code me-2"></i>Referencia de API
                     </a>
                 </div>
             </div>
@@ -123,14 +123,14 @@
                         <span class="dot green"></span>
                         <span class="ms-2 text-muted">agent-bootstrap.sh</span>
                     </div>
-                                        <pre class="code-content mb-0"><code><span class="terminal-comment"># First-time setup on the machine that will trade</span>
+                                        <pre class="code-content mb-0"><code><span class="terminal-comment"># Configuración inicial en la máquina de trading</span>
 <span class="terminal-prompt">$</span> curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service
 
-<span class="terminal-comment"># Check that Signal Horse is running normally</span>
+<span class="terminal-comment"># Verificar que Signal Horse funciona correctamente</span>
 <span class="terminal-prompt">$</span> curl -fsS http://127.0.0.1:38182/health
 
-<span class="terminal-comment"># Open the firewall and visit it from another device</span>
-<span class="terminal-prompt">$</span> Visit in your browser: http://&lt;server-ip&gt;:38182/</code></pre>
+<span class="terminal-comment"># Abrir el firewall y acceder desde otro dispositivo</span>
+<span class="terminal-prompt">$</span> Abre en tu navegador: http://&lt;server-ip&gt;:38182/</code></pre>
                 </div>
             </div>
         </div>
@@ -141,8 +141,8 @@
                         <i class="bi bi-key-fill"></i>
                     </div>
                     <div class="hero-highlight-body">
-                        <h5>Quick AI trading access</h5>
-                        <p class="text-muted">Quickly connect OpenClaw, Claude Code, Codex, and similar tools for crypto AI quantitative trading.</p>
+                        <h5>Acceso rápido al trading con IA</h5>
+                        <p class="text-muted">Conecta rápidamente OpenClaw, Claude Code, Codex y herramientas similares para el trading cuantitativo de cripto con IA.</p>
                     </div>
                 </div>
             </div>
@@ -163,8 +163,8 @@
                         <i class="bi bi-diagram-3-fill"></i>
                     </div>
                     <div class="hero-highlight-body">
-                        <h5>AI automation + batch trading</h5>
-                        <p class="text-muted">One-click exchange access supports AI automated trading, manual trading, and batch trading across multiple accounts from one workspace.</p>
+                        <h5>Automatización con IA + trading por lotes</h5>
+                        <p class="text-muted">El acceso en un clic a los exchanges soporta trading automatizado por IA, trading manual y trading por lotes en múltiples cuentas desde un único espacio de trabajo.</p>
                     </div>
                 </div>
             </div>
@@ -177,25 +177,25 @@
         <div class="skill-spotlight ui-showcase">
             <div class="row align-items-center g-4 g-lg-5">
                 <div class="col-lg-5">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">Live Product UI</span>
-                    <h2 class="display-6 fw-bold mb-3">See what Signal Horse looks like before you install</h2>
-                    <p class="lead text-muted mb-4">Signal Horse serves a local web interface at /. Traders and AI agents can watch charts, switch Binance, OKX, Bybit, Bitget, Gate, and other supported exchanges, inspect positions and balances, run AI automation, place manual orders, and manage batch trading from one unified screen.</p>
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2">Interfaz del producto en vivo</span>
+                    <h2 class="display-6 fw-bold mb-3">Descubre cómo es Signal Horse antes de instalarlo</h2>
+                    <p class="lead text-muted mb-4">Signal Horse sirve una interfaz web local en /. Traders y agentes de IA pueden ver charts, cambiar de exchange, revisar posiciones y saldos, ejecutar automatización IA, colocar órdenes manuales y gestionar el trading por lotes desde una pantalla unificada.</p>
                     <div class="ui-showcase-metrics">
                         <div class="ui-showcase-chip">
                             <i class="bi bi-graph-up-arrow"></i>
-                            <span>Embedded market chart and live price context</span>
+                            <span>Chart de mercado integrado y contexto de precio en tiempo real</span>
                         </div>
                         <div class="ui-showcase-chip">
                             <i class="bi bi-collection-fill"></i>
-                            <span>Multi-account trading and status panels</span>
+                            <span>Paneles de trading multicuenta y estado</span>
                         </div>
                         <div class="ui-showcase-chip">
                             <i class="bi bi-lightning-charge-fill"></i>
-                            <span>Order entry, TP/SL, and batch actions in one view</span>
+                            <span>Entrada de órdenes, TP/SL y acciones por lotes en una vista</span>
                         </div>
                         <div class="ui-showcase-chip">
                             <i class="bi bi-diagram-3-fill"></i>
-                            <span>One-click exchange access for AI automation and multi-account batch trading</span>
+                            <span>Acceso en un clic a exchanges para automatización IA y trading por lotes multicuenta</span>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
                     <div class="ui-showcase-frame">
                         <img
                             src="/static/img/signal-executor-ui-demo.png"
-                            alt="Signal Horse trading UI screenshot"
+                            alt="Captura de pantalla de la interfaz de trading de Signal Horse"
                             class="img-fluid ui-showcase-image"
                             loading="lazy"
                         >
@@ -217,8 +217,8 @@
 <section id="overview" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">What gets installed on your machine</h2>
-            <p class="lead text-muted section-lead">Signal Horse is installed on the same machine where you trade. Setup downloads the program, creates local data files, and can enable automatic startup so your AI tool always connects to the same local service.</p>
+            <h2 class="display-6 fw-bold">Qué se instala en tu máquina</h2>
+            <p class="lead text-muted section-lead">Signal Horse se instala en la misma máquina donde realizas trading. La instalación descarga el programa, crea archivos de datos locales y puede habilitar el inicio automático para que tu herramienta de IA siempre se conecte al mismo servicio local.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-xl-3">
@@ -226,8 +226,8 @@
                     <div class="feature-icon bg-gradient-warning">
                         <i class="bi bi-box-seam-fill"></i>
                     </div>
-                    <h4>Signal Horse core program</h4>
-                    <p class="text-muted">This is the local program installed on your computer. It provides the trading page, local connection, and trading actions.</p>
+                    <h4>Programa principal de Signal Horse</h4>
+                    <p class="text-muted">Es el programa local instalado en tu ordenador. Proporciona la página de trading, la conexión local y las acciones de trading.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -235,8 +235,8 @@
                     <div class="feature-icon bg-gradient-info">
                         <i class="bi bi-hdd-stack-fill"></i>
                     </div>
-                    <h4>Local settings and records</h4>
-                    <p class="text-muted">Your settings and other local data stay on this machine instead of in a remote web account.</p>
+                    <h4>Configuraciones y registros locales</h4>
+                    <p class="text-muted">Tu configuración y otros datos locales permanecen en esta máquina en lugar de en una cuenta web remota.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -244,8 +244,8 @@
                     <div class="feature-icon bg-gradient-success">
                         <i class="bi bi-gear-fill"></i>
                     </div>
-                    <h4>Automatic background startup</h4>
-                    <p class="text-muted">After installation, Signal Horse can start automatically in the background, so you do not need to reopen it manually every time.</p>
+                    <h4>Inicio automático en segundo plano</h4>
+                    <p class="text-muted">Tras la instalación, Signal Horse puede iniciarse automáticamente en segundo plano, sin necesidad de reabrirlo manualmente cada vez.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
@@ -253,8 +253,8 @@
                     <div class="feature-icon bg-gradient-danger">
                         <i class="bi bi-key-fill"></i>
                     </div>
-                    <h4>Exchange key entry</h4>
-                    <p class="text-muted">To connect an exchange, fill in API Key and Secret. OKX and Bitget also require a passphrase.</p>
+                    <h4>Entrada de claves del exchange</h4>
+                    <p class="text-muted">Para conectar un exchange, rellena la API Key y el Secret. OKX y Bitget también requieren una passphrase.</p>
                 </div>
             </div>
         </div>
@@ -264,8 +264,8 @@
 <section id="install" class="py-5 bg-dark-gradient">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">Installation details</h2>
-            <p class="lead text-muted section-lead">If you are installing it yourself, use the normal installer. If you are preparing a server or AI workflow, use the one-line install command.</p>
+            <h2 class="display-6 fw-bold">Detalles de instalación</h2>
+            <p class="lead text-muted section-lead">Si instalas tú mismo, usa el instalador estándar. Para preparar un servidor o flujo de trabajo de IA, usa el comando de instalación en una línea.</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-6">
@@ -298,48 +298,48 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-apple text-warning me-2"></i>macOS</h4>
-                    <p class="text-muted">Menu bar app that installs Signal Horse locally and lets you open the trading page or restart the local service with one click.</p>
+                    <p class="text-muted">App de la barra de menús que instala Signal Horse localmente y permite abrir la página de trading o reiniciar el servicio local con un clic.</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
-                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg" class="btn btn-warning"><i class="bi bi-download me-2"></i>Download Signal Horse for macOS (.dmg)</a>
-                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_amd64.dmg" class="btn btn-outline-light"><i class="bi bi-download me-2"></i>Download Intel DMG</a>
+                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg" class="btn btn-warning"><i class="bi bi-download me-2"></i>Descargar Signal Horse para macOS (.dmg)</a>
+                        <a href="https://signal.horse/releases/latest/signal_executor_darwin_amd64.dmg" class="btn btn-outline-light"><i class="bi bi-download me-2"></i>Descargar DMG Intel</a>
                         <span class="badge bg-secondary align-self-center">macOS 13+ · Apple Silicon / Intel</span>
                     </div>
-                    <p class="text-muted mb-2">For most macOS desktop users, use the packaged app:</p>
+                    <p class="text-muted mb-2">Para la mayoría de usuarios de escritorio macOS, usa la app empaquetada:</p>
                     <div class="code-block mb-3">
-                        <pre class="mb-0 guide-code">1. Download and open the Signal Horse macOS package (.dmg)
-2. Drag the downloaded app into /Applications
-3. Open the app and use the menu bar icon to open the local UI in your browser
-4. Use the menu to restart the local service or turn on background startup</pre>
+                        <pre class="mb-0 guide-code">1. Descarga y abre el paquete macOS de Signal Horse (.dmg)
+2. Arrastra la app descargada a /Applications
+3. Abre la app y usa el icono de la barra de menús para abrir la interfaz local en el navegador
+4. Usa el menú para reiniciar el servicio local o activar el inicio en segundo plano</pre>
                     </div>
-                    <p class="text-muted mb-2">This DMG can be opened normally in Finder, but it is not yet Apple notarized. The first time, macOS may still ask you to right click the app and choose Open once.</p>
-                    <p class="text-muted mb-2">If you need command-line deployment or unattended setup, you can still use the one-line install command:</p>
+                    <p class="text-muted mb-2">Este DMG puede abrirse normalmente en Finder, pero aún no está notariado por Apple. La primera vez, macOS puede pedirte que hagas clic derecho en la app y elijas Abrir una vez.</p>
+                    <p class="text-muted mb-2">Si necesitas despliegue por línea de comandos o instalación desatendida, puedes usar el comando de instalación en una línea:</p>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
-                    <p class="text-muted mb-0">The command-line install sets up the same local Signal Horse service. The app is simply a more convenient desktop way to manage it.</p>
+                    <p class="text-muted mb-0">La instalación por línea de comandos configura el mismo servicio local de Signal Horse. La app es simplemente una forma más cómoda de gestionarlo desde el escritorio.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-ubuntu text-warning me-2"></i>Linux (Ubuntu / Debian)</h4>
-                    <p class="text-muted">Run one command and Linux will download Signal Horse, install it, set it to start automatically, and open the local service on port 38182:</p>
+                    <p class="text-muted">Ejecuta un comando y Linux descargará Signal Horse, lo instalará, lo configurará para inicio automático y abrirá el servicio local en el puerto 38182:</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
-                    <p class="text-muted mb-2">After it finishes, confirm that Signal Horse is running:</p>
+                    <p class="text-muted mb-2">Al terminar, confirma que Signal Horse está en ejecución:</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl http://127.0.0.1:38182/health</pre>
                     </div>
-                    <p class="text-muted mb-2">If you want to open the Signal Horse page from another device, allow TCP port 38182 on the Linux firewall or security group, then visit:</p>
+                    <p class="text-muted mb-2">Para abrir la página de Signal Horse desde otro dispositivo, permite el puerto TCP 38182 en el firewall de Linux o grupo de seguridad, luego visita:</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">http://&lt;server-ip&gt;:38182/</pre>
                     </div>
-                    <p class="text-muted mb-0">By default, Signal Horse uses port 38182 on Linux. The installer tries to set it to start automatically for the current user, and if you do not use root it installs under your user directory.</p>
+                    <p class="text-muted mb-0">Por defecto, Signal Horse usa el puerto 38182 en Linux. El instalador intenta configurar el inicio automático para el usuario actual; sin root se instala en el directorio del usuario.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
-                    <h4><i class="bi bi-router-fill text-warning me-2"></i>Local addresses available after install</h4>
+                    <h4><i class="bi bi-router-fill text-warning me-2"></i>Direcciones locales disponibles tras la instalación</h4>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">GET  http://127.0.0.1:38182/health
 GET  http://127.0.0.1:38182/positions
@@ -350,7 +350,7 @@ POST http://127.0.0.1:38182/set-tpsl
 POST http://127.0.0.1:38182/cancel-tpsl
 POST http://127.0.0.1:38182/close-all</pre>
                     </div>
-                    <p class="text-muted mb-0">On the same machine, your AI tool can keep using the local address above. On Linux, after opening the firewall, you can also access the web page from another device.</p>
+                    <p class="text-muted mb-0">En la misma máquina, tu herramienta de IA puede seguir usando la dirección local anterior. En Linux, tras abrir el firewall, también puedes acceder a la página web desde otro dispositivo.</p>
                 </div>
             </div>
         </div>
@@ -360,36 +360,36 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="flow" class="py-5 my-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">Recommended first-run flow</h2>
-            <p class="lead text-muted section-lead">The easiest first run is: install Signal Horse, add your exchange API keys, check balances and positions, then decide whether to use demo or live trading.</p>
+            <h2 class="display-6 fw-bold">Flujo recomendado para el primer inicio</h2>
+            <p class="lead text-muted section-lead">El primer inicio más sencillo: instala Signal Horse, añade tus claves API del exchange, comprueba saldos y posiciones y decide si usar trading demo o real.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">1</div>
-                    <h5>Install Signal Horse locally</h5>
-                    <p class="text-muted">Install it on the same machine where your AI tool or trading workflow runs.</p>
+                    <h5>Instalar Signal Horse localmente</h5>
+                    <p class="text-muted">Instálalo en la misma máquina donde se ejecuta tu herramienta de IA o flujo de trabajo de trading.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">2</div>
-                    <h5>Add exchange API keys</h5>
-                    <p class="text-muted">Fill in API Key and Secret. OKX and Bitget also require a passphrase.</p>
+                    <h5>Añadir claves API del exchange</h5>
+                    <p class="text-muted">Rellena la API Key y el Secret. OKX y Bitget también requieren una passphrase.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">3</div>
-                    <h5>Check data before trading</h5>
-                    <p class="text-muted">Before placing any live orders, confirm that balances, positions, and order history can be read correctly.</p>
+                    <h5>Comprobar datos antes de operar</h5>
+                    <p class="text-muted">Antes de colocar órdenes reales, confirma que los saldos, posiciones e historial de órdenes se pueden leer correctamente.</p>
                 </div>
             </div>
             <div class="col-md-6 col-xl-3">
                 <div class="step-card h-100">
                     <div class="step-number">4</div>
-                    <h5>Choose execution mode</h5>
-                    <p class="text-muted">Use demo or testnet first. Switch to live trading only after you confirm the account and permissions are correct.</p>
+                    <h5>Elegir modo de ejecución</h5>
+                    <p class="text-muted">Usa primero el modo demo o testnet. Cambia a trading real solo después de confirmar la cuenta y los permisos correctos.</p>
                 </div>
             </div>
         </div>
@@ -399,11 +399,11 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="api-reference" class="py-5 bg-dark-gradient">
     <div class="container">
         <div class="text-center">
-            <h2 class="display-6 fw-bold">Signal Horse API Reference</h2>
-            <p class="lead text-muted section-lead mt-3">Full HTTP reference (29 endpoints) — request/response schemas, parameters, and per-exchange notes — is on a dedicated docs page.</p>
+            <h2 class="display-6 fw-bold">Referencia de API de Signal Horse</h2>
+            <p class="lead text-muted section-lead mt-3">Referencia HTTP completa (29 endpoints) — esquemas de solicitud/respuesta, parámetros y notas por exchange — en una página de documentación dedicada.</p>
             <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
-                <a href="https://docs.signal.horse/" class="btn btn-warning btn-lg"><i class="bi bi-book me-2"></i>Open API Documentation</a>
-                <a href="https://docs.signal.horse/#api-reference" class="btn btn-outline-light btn-lg"><i class="bi bi-list-ul me-2"></i>Endpoint map</a>
+                <a href="https://docs.signal.horse/" class="btn btn-warning btn-lg"><i class="bi bi-book me-2"></i>Abrir documentación API</a>
+                <a href="https://docs.signal.horse/#api-reference" class="btn btn-outline-light btn-lg"><i class="bi bi-list-ul me-2"></i>Mapa de endpoints</a>
             </div>
             <div class="row g-3 justify-content-center mt-4">
                 <div class="col-md-4 col-lg-3">
@@ -414,13 +414,13 @@ POST http://127.0.0.1:38182/close-all</pre>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="step-card h-100">
-                        <h6 class="mb-2"><i class="bi bi-graph-up text-warning me-2"></i>Read &amp; history</h6>
+                        <h6 class="mb-2"><i class="bi bi-graph-up text-warning me-2"></i>Lectura e historial</h6>
                         <p class="text-muted small mb-0">/positions, /balances, /orders-history, /positions-history, /open-orders, /open-tpsl-orders</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <div class="step-card h-100">
-                        <h6 class="mb-2"><i class="bi bi-globe text-warning me-2"></i>Market &amp; tools</h6>
+                        <h6 class="mb-2"><i class="bi bi-globe text-warning me-2"></i>Mercado y herramientas</h6>
                         <p class="text-muted small mb-0">/market/symbols, /market/ticker, /market/klines, /accounts, /settings/ai, /ai/proxy</p>
                     </div>
                 </div>
@@ -432,32 +432,32 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="faq" class="py-5 bg-dark-gradient">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">FAQ</h2>
-            <p class="lead text-muted section-lead">Quick answers to the questions most users ask before they start.</p>
+            <h2 class="display-6 fw-bold">Preguntas frecuentes</h2>
+            <p class="lead text-muted section-lead">Respuestas rápidas a las preguntas más frecuentes antes de comenzar.</p>
         </div>
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>Will this install Signal Horse on my computer?</h5>
-                    <p class="text-muted">Yes. The installer downloads Signal Horse to your computer and can keep it running locally in the background for your AI tool or trading page.</p>
+                    <h5>¿Esto instalará Signal Horse en mi ordenador?</h5>
+                    <p class="text-muted">Sí. El instalador descarga Signal Horse en tu ordenador y puede mantenerlo en ejecución localmente en segundo plano para tu herramienta de IA o página de trading.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>Do my exchange API keys go through your server?</h5>
-                    <p class="text-muted">No. Your API keys stay on your own machine. Signal Horse reads them locally and sends requests from your machine directly to the exchange.</p>
+                    <h5>¿Mis claves API del exchange pasan por vuestro servidor?</h5>
+                    <p class="text-muted">No. Tus claves API permanecen en tu propia máquina. Signal Horse las lee localmente y envía solicitudes desde tu máquina directamente al exchange.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>Which port does Signal Horse use?</h5>
-                    <p class="text-muted">By default, Signal Horse uses port 38182. On the same machine, open http://127.0.0.1:38182/ . If you want to access it from another Linux device, open that port in the firewall first.</p>
+                    <h5>¿Qué puerto usa Signal Horse?</h5>
+                    <p class="text-muted">Por defecto, Signal Horse usa el puerto 38182. En la misma máquina, abre http://127.0.0.1:38182/ . Para acceder desde otro dispositivo Linux, abre primero ese puerto en el firewall.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="faq-card h-100">
-                    <h5>How should I stay safe when enabling AI trading?</h5>
-                    <p class="text-muted">Start with demo mode, keep manual confirmation for real orders, and set leverage and risk limits before letting AI place live trades.</p>
+                    <h5>¿Cómo mantenerme seguro al activar el trading con IA?</h5>
+                    <p class="text-muted">Comienza con el modo demo, mantén la confirmación manual para órdenes reales y establece límites de apalancamiento y riesgo antes de dejar que la IA coloque operaciones reales.</p>
                 </div>
             </div>
         </div>
@@ -467,8 +467,8 @@ POST http://127.0.0.1:38182/close-all</pre>
 <section id="software-platforms" class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-6 fw-bold">Supported software platforms</h2>
-            <p class="lead text-muted section-lead">Signal Horse can be connected from OpenClaw, Claude Code, Codex, Hermes Agents, and other agent platforms for one-stop access to multiple cryptocurrency exchanges and unified management.</p>
+            <h2 class="display-6 fw-bold">Plataformas de software compatibles</h2>
+            <p class="lead text-muted section-lead">Signal Horse puede conectarse desde OpenClaw, Claude Code, Codex, Hermes Agents y otras plataformas de agentes para acceso centralizado a múltiples exchanges de criptomonedas y gestión unificada.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3">
@@ -477,7 +477,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/openclaw.png" alt="OpenClaw" class="platform-logo-image platform-logo-image--openclaw">
                     </div>
                     <h5 class="mb-2">OpenClaw</h5>
-                    <p class="text-muted mb-0">Local agent workflows can call Signal Horse for exchange access, order execution, and trading automation.</p>
+                    <p class="text-muted mb-0">Los flujos de trabajo de agentes locales pueden llamar a Signal Horse para acceso a exchanges, ejecución de órdenes y automatización del trading.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -486,7 +486,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/claude-code.svg" alt="Claude Code" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Claude Code</h5>
-                    <p class="text-muted mb-0">Use Claude Code as a local trading copilot for research, manual execution, and automated workflows.</p>
+                    <p class="text-muted mb-0">Usa Claude Code como copiloto de trading local para investigación, ejecución manual y flujos de trabajo automatizados.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -495,7 +495,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/codex.svg" alt="Codex" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Codex</h5>
-                    <p class="text-muted mb-0">Codex can use Signal Horse as a local trading gateway for crypto research, order execution, and AI trading automation.</p>
+                    <p class="text-muted mb-0">Codex puede usar Signal Horse como puerta de enlace de trading local para investigación cripto, ejecución de órdenes y automatización del trading con IA.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -504,7 +504,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                         <img src="/static/img/platforms/hermes-agents.svg" alt="Hermes Agents" class="platform-logo-image">
                     </div>
                     <h5 class="mb-2">Hermes Agents</h5>
-                    <p class="text-muted mb-0">Hermes Agents and other multi-agent runtimes can unify cryptocurrency exchange operations through Signal Horse.</p>
+                    <p class="text-muted mb-0">Hermes Agents y otros runtimes multiagente pueden unificar las operaciones en exchanges de criptomonedas a través de Signal Horse.</p>
                 </div>
             </div>
         </div>
@@ -518,15 +518,15 @@ POST http://127.0.0.1:38182/close-all</pre>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning"><span aria-hidden="true">🐴</span> Signal Horse</h5>
-                    <p class="text-muted">Signal Horse delivers professional cryptocurrency trading signal automation for modern traders.</p>
+                    <p class="text-muted">Signal Horse ofrece automatización profesional de señales de trading de criptomonedas para traders modernos.</p>
                 </div>
                 <div class="col-md-2 mb-4">
-                    <h6>Product</h6>
+                    <h6>Producto</h6>
                     <ul class="list-unstyled">
-                        <li><a href="/#overview" class="text-muted">Overview</a></li>
-                        <li><a href="/#install" class="text-muted">Installation</a></li>
-                        <li><a href="/#flow" class="text-muted">First Run</a></li>
-                        <li><a href="/#faq" class="text-muted">FAQ</a></li>
+                        <li><a href="/es/#overview" class="text-muted">Descripción general</a></li>
+                        <li><a href="/es/#install" class="text-muted">Instalación</a></li>
+                        <li><a href="/es/#flow" class="text-muted">Primer inicio</a></li>
+                        <li><a href="/es/#faq" class="text-muted">Preguntas frecuentes</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-4">
@@ -540,7 +540,7 @@ POST http://127.0.0.1:38182/close-all</pre>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <h6>Supported Platforms</h6>
+                    <h6>Plataformas compatibles</h6>
                     <div class="d-flex gap-3 mt-3">
                         <span class="badge bg-secondary"><i class="bi bi-ubuntu"></i> Ubuntu</span>
                         <span class="badge bg-secondary"><i class="bi bi-ubuntu"></i> Debian</span>
@@ -551,7 +551,7 @@ POST http://127.0.0.1:38182/close-all</pre>
             </div>
             <hr class="my-4">
             <div class="text-center text-muted">
-                <small>&copy; 2026 Signal Horse. All rights reserved.</small>
+                <small>&copy; 2026 Signal Horse. Todos los derechos reservados.</small>
             </div>
         </div>
     </footer>
