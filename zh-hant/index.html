@@ -271,17 +271,17 @@
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-windows text-warning me-2"></i>Windows</h4>
-                    <p class="text-muted">面向本地瀏覽器交易介面的便攜 ZIP 包。不需要管理員權限，不寫入註冊表，也不會自動啟動。</p>
+                    <p class="text-muted">Portable ZIP for the local browser-based trading UI. On first open you can keep the page public or require a username and password every time. No admin rights, registry writes, or auto-start.</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
                         <a href="https://signal.horse/releases/latest/signal_horse_windows_portable.zip" class="btn btn-warning"><i class="bi bi-download me-2"></i>下載 Windows 便攜 ZIP 包</a>
-                        <span class="badge bg-secondary align-self-center">Windows x64 · 1.0.0+20260522.014131Z</span>
+                        <span class="badge bg-secondary align-self-center">Windows x64 · 1.0.0+20260608.142819Z</span>
                     </div>
                     <p class="text-muted mb-2">將 ZIP 解壓到任何使用者可寫目錄，然後運行本地啟動器：</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">1. 下載並解壓 signal_horse_windows_portable.zip
 2. 打開解壓後的資料夾
 3. 運行 Start Signal Executor.cmd
-4. 瀏覽器會自動打開本地介面</pre>
+4. Your browser opens the local UI and the first-run access wizard</pre>
                     </div>
                     <p class="text-muted mb-2">如果你更喜歡用腳本安裝到 LocalAppData，請使用這個 PowerShell 輔助腳本：</p>
                     <div class="code-block mb-3">
@@ -292,13 +292,13 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">http://127.0.0.1:38182/</pre>
                     </div>
-                    <p class="text-muted mb-0">這個 Windows 包始終只在使用者目錄內運行。不需要管理員權限，不寫入開機啟動註冊表項，只會提示你有新版本可用。</p>
+                    <p class="text-muted mb-0">This Windows package stays in user space. It does not require admin rights, does not write startup registry entries, and only notifies about new versions. Later you can change Web UI access from Settings &gt; Web UI Access, or reset it from the portable folder with: <code>SignalHorse.exe web-ui set-password --username &lt;name&gt;</code></p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-apple text-warning me-2"></i>macOS</h4>
-                    <p class="text-muted">會在本地安裝 Signal Horse 的選單列應用，並讓你一鍵打開交易頁面或重啟本地服務。</p>
+                    <p class="text-muted">Menu bar app that installs Signal Horse locally and lets you open the trading page or restart the local service with one click. On first open you can leave the page public or protect it with a username and password.</p>
                     <div class="d-flex gap-2 flex-wrap mb-3">
                         <a href="https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg" class="btn btn-warning"><i class="bi bi-download me-2"></i>下載 Signal Horse for macOS (.dmg)</a>
                         <a href="https://signal.horse/releases/latest/signal_executor_darwin_amd64.dmg" class="btn btn-outline-light"><i class="bi bi-download me-2"></i>下載 Intel DMG</a>
@@ -316,13 +316,13 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
                     <div class="code-block mb-4">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
-                    <p class="text-muted mb-0">命令列安裝配置的是同一套本地 Signal Horse 服務；圖形應用只是更方便的桌面管理方式。</p>
+                    <p class="text-muted mb-0">The command-line install sets up the same local Signal Horse service. The app is simply a more convenient desktop way to manage it. If you enable password mode, every browser visit asks you to sign in until you switch back to public access or reset the password from Settings &gt; Web UI Access.</p>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-ubuntu text-warning me-2"></i>Linux (Ubuntu / Debian)</h4>
-                    <p class="text-muted">運行一條命令後，Linux 會自動下載並安裝 Signal Horse、設定自動啟動，並在 38182 連接埠啟動本地服務：</p>
+                    <p class="text-muted">Run one command and Linux will download Signal Horse, install it, set it to start automatically, and open the local service on port 38182. On first open you can keep the page public or require a username and password every time:</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
@@ -334,7 +334,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">http://&lt;server-ip&gt;:38182/</pre>
                     </div>
-                    <p class="text-muted mb-0">預設情況下，Signal Horse 在 Linux 上使用 38182 連接埠。安裝器會嘗試為當前使用者啟用自動啟動；如果你不是用 root 安裝，它會安裝到你的使用者目錄下。</p>
+                    <p class="text-muted mb-0">By default, Signal Horse uses port 38182 on Linux. The installer tries to set it to start automatically for the current user, and if you do not use root it installs under your user directory. Later you can change Web UI access from Settings &gt; Web UI Access, or reset it from the shell with: <code>signal-executor web-ui set-password --username &lt;name&gt;</code></p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -452,6 +452,12 @@ POST http://127.0.0.1:38182/close-all</pre>
                 <div class="faq-card h-100">
                     <h5>Signal Horse 使用哪個連接埠？</h5>
                     <p class="text-muted">預設使用 38182 連接埠。在同一台機器上打開 http://127.0.0.1:38182/ 。如果要從另一台 Linux 裝置訪問，請先在防火牆中放行該連接埠。</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="faq-card h-100">
+                    <h5>Can I protect the local Web UI with a password?</h5>
+                    <p class="text-muted">Yes. The first time you open Signal Horse, it can stay public or require a username and password for every visit. Later you can switch modes from Settings &gt; Web UI Access, or reset the password from the packaged binary with the web-ui set-password command.</p>
                 </div>
             </div>
             <div class="col-lg-6">

@@ -522,6 +522,9 @@ print_completion() {
         echo -e "${GREEN}Profile:${NC} ${PROFILE_NAME}"
     fi
 
+    echo -e "${GREEN}First Web UI open:${NC} choose public access or username/password access."
+    echo -e "${GREEN}Reset later:${NC} ${command_bin} web-ui set-password --username <name>"
+
     echo ""
     echo -e "${CYAN}Useful commands:${NC}"
 
@@ -535,6 +538,9 @@ print_completion() {
 
     echo "  ${command_bin} service status"
     echo "  ${command_bin} service restart"
+    echo "  ${command_bin} web-ui status"
+    echo "  ${command_bin} web-ui set-public"
+    echo "  ${command_bin} web-ui set-password --username <name>"
     echo "  curl -fsS http://127.0.0.1:${SERVICE_PORT}/health"
 
     if [[ -n "$testnet_payload" ]]; then

@@ -148,6 +148,8 @@ function Show-Completion {
     Write-Host "Portable package extracted to: $resolvedInstallDir" -ForegroundColor Green
     Write-Host "Start later with: $launcherPath" -ForegroundColor Green
     Write-Host "Local UI: http://127.0.0.1:38182/" -ForegroundColor Green
+    Write-Host "First open: choose public access or username/password access for the local Web UI." -ForegroundColor Green
+    Write-Host "Reset later from Settings > Web UI Access or with: $resolvedInstallDir\SignalHorse.exe web-ui set-password --username <name>" -ForegroundColor Green
 }
 
 function Main {
