@@ -1,22 +1,22 @@
 {
-  "version": "1.0.159.13024",
+  "version": "1.0.162.3481",
   "baseVersion": "1.0.0",
-  "displayVersion": "1.0.0+20260608.142819Z",
-  "publishedAtUtc": "2026-06-08T14:28:19.1275116Z",
+  "displayVersion": "1.0.0+20260611.035207Z",
+  "publishedAtUtc": "2026-06-11T03:52:07.3197816Z",
   "publicBaseUrl": "https://signal.horse",
   "downloadBaseUrl": "https://signal.horse/releases/latest",
   "versionApiUrl": "https://signal.horse/api/releases/latest",
   "installerFilename": "signal_horse_windows_portable.zip",
-  "installerSize": 5890044,
-  "installerSha256": "3912435d04291e396948acd5705bde293ccc25e60c88efb5fd2228ddf7acd3ff",
+  "installerSize": 5903357,
+  "installerSha256": "a62c79fd13eb748d0e77f103fe1621b3329c05362f2ddeca0421e5760d2b9949",
   "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "windowsInstallerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "backendFilename": "signal_executor_windows_amd64.exe",
-  "backendSize": 15895552,
-  "backendSha256": "c6769c1816aa95eaef3ba2098fb1a1cc4be9ea8d92cf3390fdb38b5166ed8c27",
+  "backendSize": 15937536,
+  "backendSha256": "3fc87aa539540f7423fb85d44d2f213de0a185ca2460abe7ca4a736bfabe4b3f",
   "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
   "windowsBackendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
-  "releaseNotes": "Windows portable ZIP with a local launcher, first-open Web UI access wizard, optional password login, and notify-only updates.",
+  "releaseNotes": "Password-protected Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads.",
   "linuxAmd64BinaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
   "macosArm64BinaryUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64",
   "macosArm64DmgUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg",
@@ -27,22 +27,22 @@
   "platforms": {
     "windows": {
       "installerFilename": "signal_horse_windows_portable.zip",
-      "installerSize": 5890044,
-      "installerSha256": "3912435d04291e396948acd5705bde293ccc25e60c88efb5fd2228ddf7acd3ff",
+      "installerSize": 5903357,
+      "installerSha256": "a62c79fd13eb748d0e77f103fe1621b3329c05362f2ddeca0421e5760d2b9949",
       "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
       "backendFilename": "signal_executor_windows_amd64.exe",
-      "backendSize": 15895552,
-      "backendSha256": "c6769c1816aa95eaef3ba2098fb1a1cc4be9ea8d92cf3390fdb38b5166ed8c27",
+      "backendSize": 15937536,
+      "backendSha256": "3fc87aa539540f7423fb85d44d2f213de0a185ca2460abe7ca4a736bfabe4b3f",
       "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
-      "releaseNotes": "Windows portable ZIP with a local launcher, first-open Web UI access wizard, optional password login, and notify-only updates."
+      "releaseNotes": "Password-protected Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
     },
     "linux": {
       "amd64": {
         "binaryFilename": "signal_executor_linux_amd64",
-        "binarySize": 19545864,
-        "binarySha256": "fb9e6aeb37e868d3d6191ca5a17081a54eaa88f60a393b74407f9b436eb4cbcf",
+        "binarySize": 19574664,
+        "binarySha256": "2c465a24d4f848dbd25e6ba941b8e6f3ac8e8790aea07a31b186e2a94b1f5450",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
-        "releaseNotes": "Linux local executor binary with embedded trading UI and first-open Web UI access wizard."
+        "releaseNotes": "Embedded Linux Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
       }
     },
     "macos": {
@@ -59,7 +59,7 @@
         "appZipSize": 5822252,
         "appZipSha256": "92c12cddc76f668f9206a5879609f2b2dc3f596eb4a842211487b1f1aa42c22d",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64_app.zip",
-        "releaseNotes": "macOS menu-bar launcher bundle with embedded local executor backend and first-open Web UI access wizard."
+        "releaseNotes": "macOS launcher builds now rate-limit repeated Web UI login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
       },
       "amd64": {
         "binaryFilename": "signal_executor_darwin_amd64",
@@ -74,7 +74,7 @@
         "appZipSize": 6256988,
         "appZipSha256": "47737cc8f25a3f1a569494ec4fcecdc59336cd342c363ff5072dce89deb1cf71",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_amd64_app.zip",
-        "releaseNotes": "macOS menu-bar launcher bundle with embedded local executor backend and first-open Web UI access wizard."
+        "releaseNotes": "macOS launcher builds now rate-limit repeated Web UI login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
       }
     }
   }
