@@ -53,6 +53,14 @@ if [[ -n "${SIGNAL_EXECUTOR_KEYRING_SERVICE:-}" ]]; then
     KEYRING_SERVICE_EXPLICIT=1
 fi
 
+emit_update_progress() {
+    local progress="$1"
+    local stage="$2"
+    local message="$3"
+
+    printf 'SE_UPDATE_PROGRESS|%s|%s|%s\n' "$progress" "$stage" "$message"
+}
+
 usage() {
     cat <<'EOF'
 Usage: install.sh [options]
@@ -231,6 +239,7 @@ detect_existing_installation() {
     fi
 
     if [[ "$IS_UPDATE" -eq 1 ]]; then
+        emit_update_progress 10 "detected_existing_install" "Detected existing Linux install."
         if [[ "$SKIP_CREDENTIALS_EXPLICIT" -eq 0 ]]; then
             SKIP_CREDENTIALS=1
         fi
@@ -401,6 +410,8 @@ fetch_release_manifest() {
         return
     fi
 
+    emit_update_progress 20 "manifest_fetch" "Checking latest release metadata..."
+
     if ! RELEASE_MANIFEST_JSON=$(download_text "$RELEASE_MANIFEST_URL"); then
         echo -e "${YELLOW}Failed to fetch release manifest from ${RELEASE_MANIFEST_URL}. Falling back to legacy release aliases.${NC}"
         RELEASE_MANIFEST_JSON=""
@@ -469,8 +480,10 @@ resolve_download_url() {
 download_binary() {
     if [[ "$IS_UPDATE" -eq 1 ]]; then
         echo -e "${BLUE}Updating Signal Executor binary...${NC}"
+        emit_update_progress 40 "binary_download" "Updating Signal Executor binary..."
     else
         echo -e "${BLUE}Installing Signal Executor binary...${NC}"
+        emit_update_progress 40 "binary_download" "Installing Signal Executor binary..."
     fi
 
     LOCAL_BINARY="/home/ubuntu/signal_executor/rust_executor/target/release/signal_executor"
@@ -498,12 +511,14 @@ download_binary() {
     fi
 
     $SUDO chmod +x "${INSTALL_DIR}/${BINARY_NAME}"
+    emit_update_progress 58 "binary_ready" "Signal Executor binary is ready."
     echo -e "${GREEN}Binary installed to ${INSTALL_DIR}/${BINARY_NAME}${NC}"
 }
 
 prepare_local_data_dir() {
     mkdir -p "$DATA_DIR"
     chmod 700 "$DATA_DIR"
+    emit_update_progress 66 "data_dir_ready" "Local data directory is ready."
 }
 
 select_exchange() {
@@ -567,11 +582,13 @@ configure_credentials() {
 
     if [[ "$SKIP_CREDENTIALS" -eq 1 ]]; then
         echo ""
+        emit_update_progress 72 "credentials_skipped" "Skipping credential onboarding."
         echo -e "${YELLOW}Skipping credential onboarding. Run '${command_bin} credentials set' later before trading.${NC}"
         return
     fi
 
     echo ""
+    emit_update_progress 70 "credentials_start" "Opening local credential onboarding."
     echo -e "${BLUE}Open the local keyring onboarding flow.${NC}"
     echo -e "${YELLOW}The binary will prompt for API key / secret and store them in the OS keyring.${NC}"
 
@@ -579,6 +596,7 @@ configure_credentials() {
         run_signal_executor credentials set --profile "$PROFILE_NAME" --exchange "$EXCHANGE"
 
         if run_signal_executor credentials test --profile "$PROFILE_NAME"; then
+            emit_update_progress 78 "credentials_ready" "Credential profile validated."
             echo -e "${GREEN}Credential profile ${PROFILE_NAME} validated successfully.${NC}"
             break
         fi
@@ -619,6 +637,8 @@ install_service() {
         return
     fi
 
+    emit_update_progress 82 "service_configuring" "Configuring the local background service..."
+
     if [[ "$OS" == "linux" && "$EXISTING_SERVICE_INSTALLED" -eq 1 ]]; then
         run_signal_executor service install --binary "${INSTALL_DIR}/${BINARY_NAME}" --port "$SERVICE_PORT"
 
@@ -626,7 +646,9 @@ install_service() {
             enable_linux_linger
         fi
 
+        emit_update_progress 92 "service_restart" "Restarting the local background service..."
         run_signal_executor service restart
+        emit_update_progress 96 "service_ready" "Local background service restarted."
         echo -e "${GREEN}Existing service updated and restarted.${NC}"
         return
     fi
@@ -637,6 +659,7 @@ install_service() {
         enable_linux_linger
     fi
 
+    emit_update_progress 96 "service_ready" "Local background service is running."
     echo -e "${GREEN}Service installed and started.${NC}"
 }
 
@@ -686,8 +709,10 @@ print_completion() {
 
     echo ""
     if [[ "$IS_UPDATE" -eq 1 ]]; then
+        emit_update_progress 100 "completed" "Linux update complete."
         echo -e "${GREEN}Update complete.${NC}"
     else
+        emit_update_progress 100 "completed" "Installation complete."
         echo -e "${GREEN}Installation complete.${NC}"
     fi
     echo -e "${GREEN}Binary:${NC} ${INSTALL_DIR}/${BINARY_NAME}"

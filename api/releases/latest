@@ -7,16 +7,16 @@
   "downloadBaseUrl": "https://signal.horse/releases/latest",
   "versionApiUrl": "https://signal.horse/api/releases/latest",
   "installerFilename": "signal_horse_windows_portable.zip",
-  "installerSize": 5903357,
-  "installerSha256": "a62c79fd13eb748d0e77f103fe1621b3329c05362f2ddeca0421e5760d2b9949",
+  "installerSize": 5925712,
+  "installerSha256": "6f2bac7e96f7a5a9705bde8144c11f3699b947b1d366f3519c50786f3800f153",
   "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "windowsInstallerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "backendFilename": "signal_executor_windows_amd64.exe",
-  "backendSize": 15937536,
-  "backendSha256": "3fc87aa539540f7423fb85d44d2f213de0a185ca2460abe7ca4a736bfabe4b3f",
+  "backendSize": 16003584,
+  "backendSha256": "9b111d7dc812eca71451c447074660c880bd51067d6689a6ea73974032e91b97",
   "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
   "windowsBackendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
-  "releaseNotes": "Password-protected Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads.",
+  "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while Windows stays on a manual portable download refresh flow.",
   "linuxAmd64BinaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
   "macosArm64BinaryUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64",
   "macosArm64DmgUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64.dmg",
@@ -27,22 +27,22 @@
   "platforms": {
     "windows": {
       "installerFilename": "signal_horse_windows_portable.zip",
-      "installerSize": 5903357,
-      "installerSha256": "a62c79fd13eb748d0e77f103fe1621b3329c05362f2ddeca0421e5760d2b9949",
+      "installerSize": 5925712,
+      "installerSha256": "6f2bac7e96f7a5a9705bde8144c11f3699b947b1d366f3519c50786f3800f153",
       "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
       "backendFilename": "signal_executor_windows_amd64.exe",
-      "backendSize": 15937536,
-      "backendSha256": "3fc87aa539540f7423fb85d44d2f213de0a185ca2460abe7ca4a736bfabe4b3f",
+      "backendSize": 16003584,
+      "backendSha256": "9b111d7dc812eca71451c447074660c880bd51067d6689a6ea73974032e91b97",
       "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
-      "releaseNotes": "Password-protected Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
+      "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while Windows stays on a manual portable download refresh flow."
     },
     "linux": {
       "amd64": {
         "binaryFilename": "signal_executor_linux_amd64",
-        "binarySize": 19574664,
-        "binarySha256": "2c465a24d4f848dbd25e6ba941b8e6f3ac8e8790aea07a31b186e2a94b1f5450",
+        "binarySize": 19677064,
+        "binarySha256": "f37a5518a728d58fa07dc22f9aeb1db58109cbaf1288e675af1aed9d5129bf15",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
-        "releaseNotes": "Embedded Linux Web UI now rate-limits repeated login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
+        "releaseNotes": "The local UI update prompt now runs the Linux in-place updater automatically and shows progress until the local service restarts."
       }
     },
     "macos": {
@@ -59,7 +59,7 @@
         "appZipSize": 5822252,
         "appZipSha256": "92c12cddc76f668f9206a5879609f2b2dc3f596eb4a842211487b1f1aa42c22d",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_arm64_app.zip",
-        "releaseNotes": "macOS launcher builds now rate-limit repeated Web UI login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
+        "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while macOS continues to use manual download and install refreshes."
       },
       "amd64": {
         "binaryFilename": "signal_executor_darwin_amd64",
@@ -74,7 +74,7 @@
         "appZipSize": 6256988,
         "appZipSha256": "47737cc8f25a3f1a569494ec4fcecdc59336cd342c363ff5072dce89deb1cf71",
         "appZipUrl": "https://signal.horse/releases/latest/signal_executor_darwin_amd64_app.zip",
-        "releaseNotes": "macOS launcher builds now rate-limit repeated Web UI login failures, and remote AI assistant sessions can reuse Web UI auth for protected local account reads."
+        "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while macOS continues to use manual download and install refreshes."
       }
     }
   }
