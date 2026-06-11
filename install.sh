@@ -13,27 +13,52 @@ DEFAULT_SYSTEM_INSTALL_DIR="/usr/local/bin"
 DEFAULT_USER_INSTALL_DIR="$HOME/.local/bin"
 INSTALL_DIR="${SIGNAL_EXECUTOR_INSTALL_DIR:-}"
 INSTALL_DIR_EXPLICIT=0
-DATA_DIR="$HOME/.signal-executor"
+DATA_DIR="${SIGNAL_EXECUTOR_DATA_DIR:-$HOME/.signal-executor}"
+DATA_DIR_EXPLICIT=0
 SERVICE_PORT="${SIGNAL_EXECUTOR_PORT:-38182}"
+SERVICE_PORT_EXPLICIT=0
 BINARY_NAME="signal-executor"
 PROFILE_NAME="${SIGNAL_EXECUTOR_PROFILE:-}"
 EXCHANGE="${SIGNAL_EXECUTOR_EXCHANGE:-}"
+KEYRING_SERVICE="${SIGNAL_EXECUTOR_KEYRING_SERVICE:-signal-executor}"
+KEYRING_SERVICE_EXPLICIT=0
 RELEASE_MANIFEST_URL="${SIGNAL_EXECUTOR_MANIFEST_URL:-https://signal.horse/api/releases/latest}"
 LEGACY_RELEASE_BASE_URL="${SIGNAL_EXECUTOR_RELEASE_BASE_URL:-https://signal.horse/releases/latest}"
 RELEASE_MANIFEST_JSON=""
 AUTO_CONFIRM=0
 NON_INTERACTIVE=0
 SKIP_CREDENTIALS=0
+SKIP_CREDENTIALS_EXPLICIT=0
 INSTALL_SERVICE_MODE="prompt"
+INSTALL_SERVICE_MODE_EXPLICIT=0
 SUDO=""
+IS_UPDATE=0
+EXISTING_SERVICE_INSTALLED=0
+EXISTING_BINARY_PATH=""
+EXISTING_SERVICE_UNIT=""
 
 if [[ -n "$INSTALL_DIR" ]]; then
     INSTALL_DIR_EXPLICIT=1
 fi
 
+if [[ -n "${SIGNAL_EXECUTOR_DATA_DIR:-}" ]]; then
+    DATA_DIR_EXPLICIT=1
+fi
+
+if [[ -n "${SIGNAL_EXECUTOR_PORT:-}" ]]; then
+    SERVICE_PORT_EXPLICIT=1
+fi
+
+if [[ -n "${SIGNAL_EXECUTOR_KEYRING_SERVICE:-}" ]]; then
+    KEYRING_SERVICE_EXPLICIT=1
+fi
+
 usage() {
     cat <<'EOF'
 Usage: install.sh [options]
+
+Run the script again on Linux to update an existing install in place. The updater keeps local
+data, reuses the current service settings when possible, and restarts the user service.
 
 Options:
   -y, --yes               Skip the initial installation confirmation prompt.
@@ -63,14 +88,17 @@ parse_args() {
                 ;;
             --skip-credentials)
                 SKIP_CREDENTIALS=1
+                SKIP_CREDENTIALS_EXPLICIT=1
                 shift
                 ;;
             --install-service)
                 INSTALL_SERVICE_MODE="yes"
+                INSTALL_SERVICE_MODE_EXPLICIT=1
                 shift
                 ;;
             --no-service)
                 INSTALL_SERVICE_MODE="no"
+                INSTALL_SERVICE_MODE_EXPLICIT=1
                 shift
                 ;;
             --exchange)
@@ -88,6 +116,7 @@ parse_args() {
                 ;;
             --port)
                 SERVICE_PORT="$2"
+                SERVICE_PORT_EXPLICIT=1
                 shift 2
                 ;;
             -h|--help)
@@ -107,7 +136,123 @@ parse_args() {
     fi
 }
 
+linux_unit_path() {
+    local config_home
+
+    config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+    printf '%s/systemd/user/signal-executor.service' "$config_home"
+}
+
+linux_unit_env_value() {
+    local key="$1"
+    local unit_path="$2"
+
+    sed -n "s/^Environment=${key}=//p" "$unit_path" | head -n 1
+}
+
+linux_unit_binary_path() {
+    local unit_path="$1"
+    local value=""
+
+    value=$(sed -n 's/^ExecStart="\([^"]*\)".*$/\1/p' "$unit_path" | head -n 1)
+    if [[ -z "$value" ]]; then
+        value=$(sed -n 's/^ExecStart=\([^ ]*\).*/\1/p' "$unit_path" | head -n 1)
+    fi
+
+    printf '%s' "$value"
+}
+
+linux_unit_exec_port() {
+    local unit_path="$1"
+
+    sed -n 's/^ExecStart=.* --port \([0-9][0-9]*\).*$/\1/p' "$unit_path" | head -n 1
+}
+
+detect_existing_installation() {
+    local unit_path=""
+    local existing_port=""
+    local existing_data_dir=""
+    local existing_keyring_service=""
+
+    if [[ "$OS" != "linux" ]]; then
+        return
+    fi
+
+    unit_path="$(linux_unit_path)"
+    if [[ -f "$unit_path" ]]; then
+        EXISTING_SERVICE_INSTALLED=1
+        EXISTING_SERVICE_UNIT="$unit_path"
+        IS_UPDATE=1
+
+        EXISTING_BINARY_PATH="$(linux_unit_binary_path "$unit_path")"
+        existing_port="$(linux_unit_env_value "SIGNAL_EXECUTOR_PORT" "$unit_path")"
+        if [[ -z "$existing_port" ]]; then
+            existing_port="$(linux_unit_exec_port "$unit_path")"
+        fi
+        existing_data_dir="$(linux_unit_env_value "SIGNAL_EXECUTOR_DATA_DIR" "$unit_path")"
+        existing_keyring_service="$(linux_unit_env_value "SIGNAL_EXECUTOR_KEYRING_SERVICE" "$unit_path")"
+
+        if [[ "$INSTALL_DIR_EXPLICIT" -eq 0 && -n "$EXISTING_BINARY_PATH" ]]; then
+            INSTALL_DIR="$(dirname "$EXISTING_BINARY_PATH")"
+        fi
+
+        if [[ "$SERVICE_PORT_EXPLICIT" -eq 0 && -n "$existing_port" ]]; then
+            SERVICE_PORT="$existing_port"
+        fi
+
+        if [[ "$DATA_DIR_EXPLICIT" -eq 0 && -n "$existing_data_dir" ]]; then
+            DATA_DIR="$existing_data_dir"
+        fi
+
+        if [[ "$KEYRING_SERVICE_EXPLICIT" -eq 0 && -n "$existing_keyring_service" ]]; then
+            KEYRING_SERVICE="$existing_keyring_service"
+        fi
+    fi
+
+    if [[ -z "$EXISTING_BINARY_PATH" ]]; then
+        if command -v "$BINARY_NAME" >/dev/null 2>&1; then
+            EXISTING_BINARY_PATH="$(command -v "$BINARY_NAME")"
+        else
+            local candidate
+            for candidate in "$DEFAULT_SYSTEM_INSTALL_DIR/$BINARY_NAME" "$DEFAULT_USER_INSTALL_DIR/$BINARY_NAME"; do
+                if [[ -x "$candidate" ]]; then
+                    EXISTING_BINARY_PATH="$candidate"
+                    break
+                fi
+            done
+        fi
+
+        if [[ -n "$EXISTING_BINARY_PATH" ]]; then
+            IS_UPDATE=1
+            if [[ "$INSTALL_DIR_EXPLICIT" -eq 0 ]]; then
+                INSTALL_DIR="$(dirname "$EXISTING_BINARY_PATH")"
+            fi
+        fi
+    fi
+
+    if [[ "$IS_UPDATE" -eq 1 ]]; then
+        if [[ "$SKIP_CREDENTIALS_EXPLICIT" -eq 0 ]]; then
+            SKIP_CREDENTIALS=1
+        fi
+
+        if [[ "$INSTALL_SERVICE_MODE_EXPLICIT" -eq 0 ]]; then
+            INSTALL_SERVICE_MODE="yes"
+        fi
+
+        echo -e "${BLUE}Detected existing Linux install.${NC}"
+        if [[ "$EXISTING_SERVICE_INSTALLED" -eq 1 ]]; then
+            echo -e "${BLUE}Will update the binary in place, preserve ${DATA_DIR}, and restart the user service.${NC}"
+        else
+            echo -e "${BLUE}Will update the binary in place and preserve ${DATA_DIR}.${NC}"
+        fi
+    fi
+}
+
 resolve_install_dir() {
+    if [[ -n "$INSTALL_DIR" ]]; then
+        return
+    fi
+
     if [[ "$INSTALL_DIR_EXPLICIT" -eq 1 ]]; then
         return
     fi
@@ -215,12 +360,23 @@ command_hint() {
     fi
 }
 
+run_signal_executor() {
+    SIGNAL_EXECUTOR_DATA_DIR="$DATA_DIR" \
+    SIGNAL_EXECUTOR_KEYRING_SERVICE="$KEYRING_SERVICE" \
+    SIGNAL_EXECUTOR_PORT="$SERVICE_PORT" \
+    "${INSTALL_DIR}/${BINARY_NAME}" "$@"
+}
+
 confirm_installation() {
     if [[ "$AUTO_CONFIRM" -eq 1 ]]; then
         return
     fi
 
-    read -r -p "Proceed with installation? [Y/n] " confirm
+    if [[ "$IS_UPDATE" -eq 1 ]]; then
+        read -r -p "Proceed with update? [Y/n] " confirm
+    else
+        read -r -p "Proceed with installation? [Y/n] " confirm
+    fi
     if [[ "$confirm" =~ ^[Nn]$ ]]; then
         echo "Installation cancelled."
         exit 0
@@ -311,7 +467,11 @@ resolve_download_url() {
 }
 
 download_binary() {
-    echo -e "${BLUE}Installing Signal Executor binary...${NC}"
+    if [[ "$IS_UPDATE" -eq 1 ]]; then
+        echo -e "${BLUE}Updating Signal Executor binary...${NC}"
+    else
+        echo -e "${BLUE}Installing Signal Executor binary...${NC}"
+    fi
 
     LOCAL_BINARY="/home/ubuntu/signal_executor/rust_executor/target/release/signal_executor"
 
@@ -416,9 +576,9 @@ configure_credentials() {
     echo -e "${YELLOW}The binary will prompt for API key / secret and store them in the OS keyring.${NC}"
 
     while true; do
-        "${INSTALL_DIR}/${BINARY_NAME}" credentials set --profile "$PROFILE_NAME" --exchange "$EXCHANGE"
+        run_signal_executor credentials set --profile "$PROFILE_NAME" --exchange "$EXCHANGE"
 
-        if "${INSTALL_DIR}/${BINARY_NAME}" credentials test --profile "$PROFILE_NAME"; then
+        if run_signal_executor credentials test --profile "$PROFILE_NAME"; then
             echo -e "${GREEN}Credential profile ${PROFILE_NAME} validated successfully.${NC}"
             break
         fi
@@ -459,7 +619,19 @@ install_service() {
         return
     fi
 
-    "${INSTALL_DIR}/${BINARY_NAME}" service install --start --binary "${INSTALL_DIR}/${BINARY_NAME}" --port "$SERVICE_PORT"
+    if [[ "$OS" == "linux" && "$EXISTING_SERVICE_INSTALLED" -eq 1 ]]; then
+        run_signal_executor service install --binary "${INSTALL_DIR}/${BINARY_NAME}" --port "$SERVICE_PORT"
+
+        if [[ "$OS" == "linux" ]]; then
+            enable_linux_linger
+        fi
+
+        run_signal_executor service restart
+        echo -e "${GREEN}Existing service updated and restarted.${NC}"
+        return
+    fi
+
+    run_signal_executor service install --start --binary "${INSTALL_DIR}/${BINARY_NAME}" --port "$SERVICE_PORT"
 
     if [[ "$OS" == "linux" ]]; then
         enable_linux_linger
@@ -513,10 +685,18 @@ print_completion() {
     fi
 
     echo ""
-    echo -e "${GREEN}Installation complete.${NC}"
+    if [[ "$IS_UPDATE" -eq 1 ]]; then
+        echo -e "${GREEN}Update complete.${NC}"
+    else
+        echo -e "${GREEN}Installation complete.${NC}"
+    fi
     echo -e "${GREEN}Binary:${NC} ${INSTALL_DIR}/${BINARY_NAME}"
     echo -e "${GREEN}Data dir:${NC} ${DATA_DIR}"
     echo -e "${GREEN}Port:${NC} ${SERVICE_PORT}"
+
+    if [[ "$IS_UPDATE" -eq 1 && "$EXISTING_SERVICE_INSTALLED" -eq 1 ]]; then
+        echo -e "${GREEN}Service:${NC} restarted automatically"
+    fi
 
     if [[ -n "$PROFILE_NAME" ]]; then
         echo -e "${GREEN}Profile:${NC} ${PROFILE_NAME}"
@@ -547,6 +727,9 @@ print_completion() {
         echo ""
         echo -e "${CYAN}Example testnet request:${NC}"
         echo "curl -fsS -X POST http://127.0.0.1:${SERVICE_PORT}/order -H 'Content-Type: application/json' -d '${testnet_payload}'"
+    elif [[ "$IS_UPDATE" -eq 1 ]]; then
+        echo ""
+        echo -e "${GREEN}Update mode:${NC} Existing local data and credential profiles were left untouched."
     else
         echo ""
         echo -e "${YELLOW}Next step:${NC} onboard credentials before sending trade requests."
@@ -570,6 +753,7 @@ main() {
     parse_args "$@"
     print_banner
     detect_platform
+    detect_existing_installation
     resolve_install_dir
     check_sudo
     confirm_installation

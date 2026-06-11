@@ -322,10 +322,11 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -Yes</pre>
             <div class="col-lg-6">
                 <div class="install-platform-card h-100">
                     <h4><i class="bi bi-ubuntu text-warning me-2"></i>Linux (Ubuntu / Debian)</h4>
-                    <p class="text-muted">Run one command and Linux will download Signal Horse, install it, set it to start automatically, and open the local service on port 38182. On first open you can keep the page public or require a username and password every time:</p>
+                    <p class="text-muted">Run one command and Linux will download Signal Horse, install it the first time, or update the existing install in place later. On first open you can keep the page public or require a username and password every time:</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl -fsSL https://signal.horse/install.sh | bash -s -- --non-interactive --skip-credentials --install-service</pre>
                     </div>
+                    <p class="text-muted mb-2">When Signal Horse is already installed, rerunning the same command keeps your local data, reuses the current Linux service settings when possible, and restarts the local service automatically.</p>
                     <p class="text-muted mb-2">Une fois terminé, vérifiez que Signal Horse fonctionne :</p>
                     <div class="code-block mb-3">
                         <pre class="mb-0 guide-code">curl http://127.0.0.1:38182/health</pre>
