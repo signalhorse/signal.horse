@@ -1,19 +1,19 @@
 {
-  "version": "1.0.162.3481",
+  "version": "1.0.166.6954",
   "baseVersion": "1.0.0",
-  "displayVersion": "1.0.0+20260611.035207Z",
-  "publishedAtUtc": "2026-06-11T03:52:07.3197816Z",
+  "displayVersion": "1.0.0+20260615.074339Z",
+  "publishedAtUtc": "2026-06-15T07:43:39.5532566Z",
   "publicBaseUrl": "https://signal.horse",
   "downloadBaseUrl": "https://signal.horse/releases/latest",
   "versionApiUrl": "https://signal.horse/api/releases/latest",
   "installerFilename": "signal_horse_windows_portable.zip",
-  "installerSize": 5925712,
-  "installerSha256": "6f2bac7e96f7a5a9705bde8144c11f3699b947b1d366f3519c50786f3800f153",
+  "installerSize": 5964988,
+  "installerSha256": "fb391777f065a74511da1caa198ecc555268eaa722f32a6715d908b33a00050e",
   "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "windowsInstallerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
   "backendFilename": "signal_executor_windows_amd64.exe",
-  "backendSize": 16003584,
-  "backendSha256": "9b111d7dc812eca71451c447074660c880bd51067d6689a6ea73974032e91b97",
+  "backendSize": 16108544,
+  "backendSha256": "822da7e0eb0cd2be7fa1d40fc929b61ee95d84a80fb002b8de8bc88985ebfe18",
   "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
   "windowsBackendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
   "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while Windows stays on a manual portable download refresh flow.",
@@ -27,20 +27,20 @@
   "platforms": {
     "windows": {
       "installerFilename": "signal_horse_windows_portable.zip",
-      "installerSize": 5925712,
-      "installerSha256": "6f2bac7e96f7a5a9705bde8144c11f3699b947b1d366f3519c50786f3800f153",
+      "installerSize": 5964988,
+      "installerSha256": "fb391777f065a74511da1caa198ecc555268eaa722f32a6715d908b33a00050e",
       "installerUrl": "https://signal.horse/releases/latest/signal_horse_windows_portable.zip",
       "backendFilename": "signal_executor_windows_amd64.exe",
-      "backendSize": 16003584,
-      "backendSha256": "9b111d7dc812eca71451c447074660c880bd51067d6689a6ea73974032e91b97",
+      "backendSize": 16108544,
+      "backendSha256": "822da7e0eb0cd2be7fa1d40fc929b61ee95d84a80fb002b8de8bc88985ebfe18",
       "backendUrl": "https://signal.horse/releases/latest/signal_executor_windows_amd64.exe",
       "releaseNotes": "Update prompts now distinguish platform behavior: Linux can update in place with progress from the local UI, while Windows stays on a manual portable download refresh flow."
     },
     "linux": {
       "amd64": {
         "binaryFilename": "signal_executor_linux_amd64",
-        "binarySize": 19677064,
-        "binarySha256": "f37a5518a728d58fa07dc22f9aeb1db58109cbaf1288e675af1aed9d5129bf15",
+        "binarySize": 19746728,
+        "binarySha256": "bdf0fdfadf41bf79e5afecabd173c130ee75890b6cee439bc60cc27d66df97fc",
         "binaryUrl": "https://signal.horse/releases/latest/signal_executor_linux_amd64",
         "releaseNotes": "The local UI update prompt now runs the Linux in-place updater automatically and shows progress until the local service restarts."
       }
